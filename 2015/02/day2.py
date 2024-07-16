@@ -7,7 +7,10 @@ from operator import mul
 Dimensions = List[int]
 
 def parse_input(input_file: str) -> Iterator[Dimensions]:
+    global s
+    s = 0
     for line in fileinput.input(input_file, encoding="utf-8"):
+        s += 1
         yield map(int, line.split('x'))
 
 def part1(box: Dimensions) -> int:
@@ -18,11 +21,10 @@ def part1(box: Dimensions) -> int:
     return total_surface_areas + smallest_surface_area
 
 def part2(box: Dimensions) -> int:
-    d = sorted(box)[0:2]
-    #ribbon = sum(map(lambda x: 2 * x, d))
-    ribbon = 2 * sum(d)
-    bow = reduce(mul, box, 1)
-    #print(ribbon, bow)
+    l, w, h = box
+    ribbon = 2 * min(l + w, w + h, h + l)
+    #bow = reduce(mul, box, 1)
+    bow = l * w * h
     return ribbon + bow
 
 def test1() -> bool:
@@ -46,6 +48,7 @@ def main():
 
     assert test2()
     print(sum(map(part2, parse_input(inputf))))
+    print(s)
 
 if __name__ == "__main__":
     main()
