@@ -1,5 +1,3 @@
-import fileinput
-
 def parse1(file: str) -> int:
     a = b = 0
     s = ""
