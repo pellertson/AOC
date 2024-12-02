@@ -1,10 +1,7 @@
+#!/usr/bin/env bqn
 
-Split ← "   "⊸((⊢-˜+`×¬)∘=⊔⊢)
+input ← ⍉>•ParseFloat{𝔽∘(5⊸↑)⋈𝔽∘(8⊸↓)}¨ •file.Lines "input/01.in"
+p1 ← +´(|∘-)˝∧˘ input
+p2 ← {+´𝕨×+˝⍉𝕨=⌜>𝕩}˝ input
 
-# ugly but i want the correct formatting
-test ← "3   4
-4   3
-2   5
-1   3
-3   9
-3   3"
+•Show p1‿p2
