@@ -1,0 +1,7 @@
+#!/bin/false
+MD5 ⇐ {
+  code‿out‿err ← •SH "echo"‿𝕩‿"|"‿"md5sum"
+  "Error when computing md5 sum: "‿err ! code=0
+  out
+}
+

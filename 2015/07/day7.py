@@ -2,7 +2,7 @@ import fileinput
 import textwrap
 import re
 import logging
-from enum import Enum
+
 
 logging.basicConfig(level=logging.INFO)
 
