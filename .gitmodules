@@ -1,0 +1,3 @@
+[submodule "util/bqn-libs"]
+	path = util/bqn-libs
+	url = https://github.com/mlochbaum/bqn-libs.git
